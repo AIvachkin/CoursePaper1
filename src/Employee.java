@@ -12,7 +12,7 @@ public class Employee {
         this.name = name;
         this.department = department;
         this.salary = salary;
-        id = counter ++ ;
+        id = ++ counter ;
     }
 
     public void setDepartment(int department) {
@@ -40,6 +40,6 @@ public class Employee {
     }
     @Override
     public String toString(){
-        return name + ", отдел: " + department + ", з/п: " + salary;
+        return "id: " + id + ", ФИО: " + name + ", отдел: " + department + ", з/п: " + salary;
     }
 }
