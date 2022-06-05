@@ -56,6 +56,23 @@ public class Employee {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Employee employee = (Employee) o;
+        return name.equals(employee.name) && surname.equals(employee.surname) && patronymicName.equals(employee.patronymicName);
+    }
+
+    @Override
+    public int hashCode() {
+        return 0;
+    }
+
+    @Override
     public String toString() {
         return String.format(
                 "id: %d, a: %d, ФИО: %s %s %s, ЗП: %.1f, номер отдела: %d ",
