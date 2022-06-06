@@ -5,11 +5,17 @@ public class Main {
     public static void main(String[] args) {
 
         EmployeeBook employeeBook = new EmployeeBook();
-        employeeBook.addEmployee("Иван", "Иванов", "Иванович", 45000, 3);
-        employeeBook.addEmployee(new Employee("Иван", "Иванов", "Иванович", 35000, 2));
-employeeBook.removeEmployee(1);
+        Employee ivan = new Employee("Иван", "Иванов", "Иванович", 35000, 2) ;
+        employeeBook.addEmployee("Петр", "Иванов", "Иванович", 45000, 3);
+        employeeBook.addEmployee("Петр", "Петров", "Иванович", 45000, 3);
+        employeeBook.addEmployee(ivan);
+
+        employeeBook.changeSalary(ivan, 43000);
+//        employeeBook.changeDepartment(ivan, 3);
+//        employeeBook.removeEmployee(1);
         employeeBook.print();
         System.out.println();
+        employeeBook.printEmployeesByDepartment();
 //            sumSalary();
         double sumSalary = employeeBook.sumSalary();
         System.out.printf(Locale.US, "Сумма затрат на з/п в месяц: %.2f%n", sumSalary);
@@ -43,7 +49,6 @@ employeeBook.removeEmployee(1);
         employeeBook.printEmployeesWithSalaryGreaterOrEqualThan(55_000);
     }
 }
-
 
 
 //    static Employee [] fullName = new Employee[10] ;

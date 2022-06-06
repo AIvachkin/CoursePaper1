@@ -31,9 +31,10 @@ public class EmployeeBook {
     public void print() {
         for (Employee employee : fullName) {
             if (Objects.nonNull(employee)) {
-            System.out.println(employee);
+                System.out.println(employee);
+            }
         }
-    }}
+    }
 
     public double sumSalary() {
         double sumSalary = 0;
@@ -43,6 +44,22 @@ public class EmployeeBook {
             }
         }
         return sumSalary;
+    }
+
+    public void printEmployeesByDepartment() {
+        //по условию отделы от 1 до 5
+        for (int department = 1; department <= 5; department++) {
+            System.out.println("Сотрудники из отдела " + department);
+            for (Employee employee : fullName) {
+                if (Objects.nonNull(employee) && employee.getDepartment() == department) {
+                    System.out.println(employee.getName() + " " +
+                            employee.getSurname() + " " +
+                            employee.getPatronymicName());
+                }
+
+            }
+            printAllEmployees(department);
+        }
     }
 
     public double sumSalaryFromDepartment(int department) {
@@ -152,6 +169,26 @@ public class EmployeeBook {
         return sumSalary() / fullName.length;
     }
 
+    public void changeSalary(
+            Employee employee,
+            double newSalary) {
+        for (Employee value : fullName) {
+            if (Objects.equals(employee, value)) {
+                value.setSalary(newSalary);
+            }
+        }
+    }
+
+    public void changeDepartment(
+            Employee employee,
+            int newDepartment) {
+        for (Employee value : fullName) {
+            if (Objects.equals(employee, value)) {
+                value.setDepartment(newDepartment);
+            }
+        }
+    }
+
     public void addEmployee(Employee employee) {
         for (int i = 0; i < fullName.length; i++) {
             if (Objects.isNull(fullName[i])) {
@@ -170,19 +207,19 @@ public class EmployeeBook {
 
     }
 
-    public void removeEmployee(Employee employee){
+    public void removeEmployee(Employee employee) {
         for (int i = 0; i < fullName.length; i++) {
-            if (Objects.equals(fullName[i], employee))
-            {
+            if (Objects.equals(fullName[i], employee)) {
 //                    ||
 //            Objects.nonNull(fullName[i]) && Objects.nonNull(employee) && fullName[i].getDepartment() == employee.getDepartment()) {
                 fullName[i] = null;
             }
         }
     }
-    public void removeEmployee(int id){
+
+    public void removeEmployee(int id) {
         for (int i = 0; i < fullName.length; i++) {
-            if (Objects.nonNull(fullName[i]) && fullName[i].getId() == id){
+            if (Objects.nonNull(fullName[i]) && fullName[i].getId() == id) {
                 fullName[i] = null;
             }
         }
@@ -207,7 +244,19 @@ public class EmployeeBook {
             }
         }
     }
+public void printAllEmployees (int department){
+    for (Employee employee: fullName) {
+        if(Objects.nonNull(employee) && employee.getDepartment()==department){
+            System.out.printf("id: %d, ФИО: %s %s %s, ЗП: %.2f%n",
+                    employee.getId(),
+                    employee.getSurname(),
+                    employee.getName(),
+                    employee.getPatronymicName(),
+                    employee.getSalary()
+            ) ;
 
+    }
+}}
     public double averageSalaryFromDepartment(int department) {
         double totalSalaryFromDepartment = 0;
         int count = 0;
