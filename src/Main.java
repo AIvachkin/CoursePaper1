@@ -6,8 +6,8 @@ public class Main {
 
         EmployeeBook employeeBook = new EmployeeBook();
         Employee ivan = new Employee("Иван", "Иванов", "Иванович", 35000, 2) ;
-        employeeBook.addEmployee("Петр", "Иванов", "Иванович", 45000, 3);
-        employeeBook.addEmployee("Петр", "Петров", "Иванович", 45000, 3);
+        employeeBook.addEmployee("Петр", "Иванов", "Иванович", 47000, 3);
+        employeeBook.addEmployee("Петр", "Петров", "Иванович", 85000, 3);
         employeeBook.addEmployee(ivan);
 
         employeeBook.changeSalary(ivan, 43000);

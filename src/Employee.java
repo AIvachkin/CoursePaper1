@@ -1,15 +1,15 @@
 public class Employee {
-    private static int counter = 0 ;
-    private final int a ;
+    private static int counter = 0;
+    private final int a;
 
-    private final String name ;
-    private final String surname ;
+    private final String name;
+    private final String surname;
 
-    private final String patronymicName ;
+    private final String patronymicName;
 
-    private double salary ;
-    private int department ;
-    private final int id ;
+    private double salary;
+    private int department;
+    private final int id;
 
     public Employee(String name, String surname, String patronymicName, double salary, int department) {
         this.name = name;
@@ -17,10 +17,9 @@ public class Employee {
         this.patronymicName = patronymicName;
         this.salary = salary;
         this.department = department;
-        this.id = ++ counter ;
-        this.a = 1 ;
+        this.id = ++counter;
+        this.a = 1;
     }
-
 
 
     public void setDepartment(int department) {
@@ -82,6 +81,6 @@ public class Employee {
                 name,
                 patronymicName,
                 salary,
-                department );
+                department);
     }
 }
